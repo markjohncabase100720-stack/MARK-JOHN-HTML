@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark John Cabase | Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  width: 100%;
+  background: #1f2937;
+  padding: 15px 30px;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.brand {
+  color: #38bdf8;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.brand a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #38bdf8;
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  display: none;
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+}
+
+section.active {
+  display: block;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* ===== HERO SECTION ===== */
+.profile {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 4px solid #0a50805b;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.profile-text h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  color: #111827;
+}
+
+.profile-text p {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4b5563;
+}
+
+/* ===== CARD SECTIONS ===== */
+.card-section {
+  background: #ffffff;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== GRID LAYOUT ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.grid-item {
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  transition: 0.3s;
+  border: 1px solid #e5e7eb;
+}
+
+.grid-item:hover {
+  background: #38bdf8;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* ===== CONTACT ===== */
+.contact-info p {
+  text-align: center;
+  margin: 8px 0;
+  color: #374151;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1f2937;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #1f2937;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .profile-text h1 {
+    font-size: 2rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="brand"><a href="#">My Portfolio</a></div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="nav-links">
+      <li><a class="tab-link active" data-target="home">Home</a></li>
+      <li><a class="tab-link" data-target="objective">Objective</a></li>
+      <li><a class="tab-link" data-target="about">About</a></li>
+      <li><a class="tab-link" data-target="skills">Skills</a></li>
+      <li><a class="tab-link" data-target="projects">Projects</a></li>
+      <li><a class="tab-link" data-target="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="profile">
+    <img src="jn.jpg" alt="Profile Picture" class="profile-pic">
+    <div class="profile-text">
+      <h1>Mark John Cabase</h1>
+      <p>A BSIT student focused on developing clean, user-friendly websites and innovative web applications.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVE -->
+<section id="objective">
+  <div class="card-section">
+    <h2>Objective</h2>
+    <p>To become a professional software developer specializing in web and application development, delivering efficient and user-friendly solutions.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="card-section">
+    <h2>Personal Information</h2>
+    <p><strong>Name:</strong> Mark John Cabase</p>
+    <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+    <p><strong>Year:</strong> 3rd Year</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="card-section">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="grid-item">HTML</div>
+      <div class="grid-item">CSS</div>
+      <div class="grid-item">JavaScript</div>
+      <div class="grid-item">Responsive Design</div>
+      <div class="grid-item">UI/UX Fundamentals</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="card-section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="grid-item">Motor Parts System</div>
+      <div class="grid-item">Micusina Ordering System</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="card-section contact-info">
+    <h2>Contact</h2>
+    <p>Email: markjohncabase4@gmail.com</p>
+    <p>Contact Number:09582486521</p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Cabase Mark John. All rights reserved.</p>
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab-link');
+const sections = document.querySelectorAll('section');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
